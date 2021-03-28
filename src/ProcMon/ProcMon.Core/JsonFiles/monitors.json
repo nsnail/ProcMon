@@ -1,0 +1,14 @@
+{
+	"Items": [
+		{
+			"Guid": "eb2f5265-d2a2-4acf-b6c2-98001e36974d",
+			"ExePath": "d:\\ddf\\src\\duoduofan\\Duoduofan.CollectorTaobao\\bin\\Debug\\Duoduofan.CollectorTaobao.exe",
+			"WorkFolder": "d:\\ddf\\src\\duoduofan\\Duoduofan.CollectorTaobao\\bin\\Debug\\",
+			"StartArgs": "aaaa",
+			"LogPath": "bbbb",
+			"CheckLog": true,
+			"CheckExe": true,
+			"LogTimeout": 300
+		}
+	]
+}
