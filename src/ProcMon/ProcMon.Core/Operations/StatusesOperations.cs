@@ -7,7 +7,7 @@ using ProcMon.Core.Utils;
 
 namespace ProcMon.Core.Operations
 {
-	public class StatusesOperations : IOperations<StatusesDomain.StatusesItem>
+	public class StatusesOperations : ILogger, IOperations<StatusesDomain.StatusesItem>
 	{
 		private readonly string _filePath;
 
@@ -60,7 +60,12 @@ namespace ProcMon.Core.Operations
 
 		public RootDomain<StatusesDomain.StatusesItem> Write(RootDomain<StatusesDomain.StatusesItem> root)
 		{
-			File.WriteAllText(_filePath, root.Json(true));
+			try {
+				File.WriteAllText(_filePath, root.Json(true));
+			} catch (IOException exp) {
+				Log.Error(exp);
+			}
+
 			return root;
 		}
 
@@ -73,5 +78,7 @@ namespace ProcMon.Core.Operations
 			Write(root);
 			return root;
 		}
+
+		public Logger Log => new(typeof(StatusesOperations));
 	}
 }
